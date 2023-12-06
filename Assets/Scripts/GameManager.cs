@@ -60,11 +60,7 @@ public class GameManager : MonoBehaviour
         doubleBtn.interactable = false;
 
         //Start Snake Turn
-        while (getplantsvalue.TotalValue >= getsnakevalue.TotalSnakeValue)
-        {
-            SnakeTurn();
-        }
-        if (getplantsvalue.TotalValue <= getsnakevalue.TotalSnakeValue && getsnakevalue.TotalSnakeValue == 14) { PlayerLost(); }
+        StartCoroutine(SnakeTurnWithDelay());
 
     }
 
@@ -94,6 +90,28 @@ public class GameManager : MonoBehaviour
         getsnakevalue.AddTotalPlant(RandomNumber);
 
 
+    }
+
+    IEnumerator SnakeTurnWithDelay()
+    {
+        while (getplantsvalue.TotalValue >= getsnakevalue.TotalSnakeValue)
+        {
+            SnakeTurn();
+            if (getplantsvalue.TotalValue < getsnakevalue.TotalSnakeValue)
+            {
+                if (getsnakevalue.TotalSnakeValue >= 15)
+                {
+                    PlayerWin();
+                }
+                else
+                {
+                    PlayerLost();
+                }
+            }
+
+            // Waits 0.5 seconds to call function again
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
 

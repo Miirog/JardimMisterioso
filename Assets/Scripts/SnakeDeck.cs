@@ -51,7 +51,6 @@ public class SnakeDeck : MonoBehaviour
     //Add a new Plant to List + PlantValue
     public void AddTotalPlant(int n)
     {
-        Debug.Log(PlantValues[n]);
         TotalPlantsList.Add(PlantValues[n]);
         foreach (GameObject SnakePlant in SnakePlants)
         {
@@ -107,7 +106,6 @@ public class SnakeDeck : MonoBehaviour
                 gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
                 gameManager.PlayerWin();
             }
-
             //Adds next plant in list
             AddTotalPlant(listindex + 1);
         }
