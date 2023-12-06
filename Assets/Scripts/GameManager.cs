@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         {
             SnakeTurn();
         }
-        if (getplantsvalue.TotalValue <= getsnakevalue.TotalSnakeValue) { PlayerLost(); }
+        if (getplantsvalue.TotalValue <= getsnakevalue.TotalSnakeValue && getsnakevalue.TotalSnakeValue == 14) { PlayerLost(); }
 
     }
 
