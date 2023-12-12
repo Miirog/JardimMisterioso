@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         stopBtn.onClick.AddListener(() => StopClicked());
         doubleBtn.onClick.AddListener(() => DoubleClicked());
         // Application.targetFrameRate = 59;
-        Screen.orientation = ScreenOrientation.AutoRotation;
+        // Screen.orientation = ScreenOrientation.AutoRotation;
 
         //disables doubleButton on start
         doubleBtn.interactable = false;
